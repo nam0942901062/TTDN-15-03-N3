@@ -3,5 +3,5 @@ addons_path = addons
 db_host = localhost
 db_password = odoo
 db_user = odoo
-db_port = 5432
-xmlrpc_port = 7000
+db_port = 5433
+xmlrpc_port = 8069

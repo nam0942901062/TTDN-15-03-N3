@@ -12,5 +12,23 @@
             sequence="1"
             action="action_nhan_vien"
         />
+            <menuitem name="Quản lý phòng ban" 
+            id="menu_phong_ban" 
+            parent="menu_root" 
+            sequence="2"
+            action="action_phong_ban"
+        />
+            <menuitem name="Lịch sử làm việc" 
+            id="menu_lich_lam_viec" 
+            parent="menu_root" 
+            sequence="3"
+            action="action_lich_lam_viec"
+        />
+        <menuitem name="Chức vụ" 
+            id="menu_chuc_vu" 
+            parent="menu_root" 
+            sequence="4"
+            action="action_chuc_vu"
+        />
     </data>
 </odoo>
