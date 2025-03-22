@@ -17,31 +17,79 @@
                             <field name="so_dien_thoai"/>
                             <field name="ho_ten"/>
                             <field name="gioi_tinh"/>
+                            <field name="tinh_trang_hon_nhan"/>
                             <field name="ho_ten_dem"/>
                             <field name="ten"/>
                             <field name="anh" widget="image" class="oe_avatar"/>
+                            <field name="ngay_bat_dau"/>
+                            <field name="ngay_ket_thuc"/>
+                            <field name="tham_nien"/>
+                            <field name="trang_thai" string = "Trạng thái hợp đồng"/>
                         </group>
                         <notebook>
                             <page string="Chức Vụ">
-                                <field name="chuc_vu_id" string = "ten_chuc_vu"/>
+                                <field name="chuc_vu_id" string="Chức Vụ"/>
+                            </page>
+                            <page string="Phòng Ban">
+                                <field name="phong_ban_id" domain="[('id', '!=', False)]"/>
+                            </page>
+                            <page string="Cấp bậc">
+                                <field name="cap_bac_id" string="Cấp Bậc"/>
+                            </page>
+                            <page string="Tài Khoản Ngân Hàng">
+                                <group>
+                                    <field name="so_ngan_hang"/>
+                                    <field name="ten_ngan_hang"/>
+                                    <field name="ngan_hang"/>
+                                </group>
+                            </page>
+                            <page string="Hợp Đồng Lao Động">
+                                <group>
+                                    <field name="ten_hop_dong"/>
+                                    <field name="luong" widget="monetary" options="{'currency_field': 'currency_id'}"/> 
+                                    <!-- <t t-if="record.luong.raw_value">
+                                        <span>&#160;VNĐ</span>
+                                    </t> -->
+                                    <field name="ngay_bat_dau"/>
+                                    <field name="ngay_ket_thuc"/>
+                                    <field name="trang_thai"/>
+                                </group>
+                            </page>
+                            <page string="Thông Tin Học Vấn">
+                                <group>
+                                    <field name="truong_hoc"/>
+                                    <field name="bang_cap"/>
+                                    <field name="ghi_chu_bang_cap" attrs="{'invisible': [('bang_cap', '!=', 'khac')]}"/>
+                                    <field name="ngay_bat_dau_hoc"/>
+                                    <field name="ngay_ket_thuc_hoc"/>
+                                </group>
+                            </page>
+                            <page string="Thông Tin Bổ Sung">
+                                <group>
+                                    <field name="quoc_tich"/>
+                                    <field name="nick_name"/>
+                                    <field name="cmnd"/>
+                                    <field name="noi_cap"/>
+                                    <field name="dia_chi"/>
+                                    <field name="ho_khau"/>
+                                    <field name="facebook" widget="url"/>
+                                    <field name="email_2"/>
+                                </group>
+                            </page>
+                            <page string="Danh Sách Lịch Sử Làm Việc">
+                                <field name="lich_lam_viec_id"/>
+                            </page>
+                            <page string="Tệp Lưu Trữ">
+                                <group>
+                                    <field name="luu_file_id">
+                                        <tree editable="bottom">
+                                            <field name="luu_file" filename="luu_file_name" widget="binary"/>
+                                            <field name="luu_file_name" invisible="1" readonly="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
                             </page>
                         </notebook>
-                        <notebook>
-                    <page string="Hợp Đồng Lao Động">
-                    <group>
-                        <field name="ten_hop_dong"/>
-                        <field name="luong" widget="monetary"/>
-                        <field name="ngay_bat_dau"/>
-                        <field name="ngay_ket_thuc"/>
-                        <field name="trang_thai"/>
-                    </group>
-                </page>
-                </notebook>
-                <notebook>
-                    <page string="danh sách lslv">
-                        <field name="lich_lam_viec_id"/>
-                    </page>
-                </notebook>
                     </sheet>
                 </form>
             </field>
@@ -51,15 +99,23 @@
             <field name="name">nhan_vien</field>
             <field name="model">nhan_vien</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree decoration-bf="trang_thai=='draft'" decoration-success="trang_thai=='running'" decoration-danger="trang_thai=='expired'">
                     <field name="ma_dinh_danh"/>
                     <field name="ho_ten"/>
                     <field name="ngay_sinh"/>
                     <field name="gioi_tinh"/>
+                    <field name="tinh_trang_hon_nhan"/>
                     <field name="tuoi"/>
                     <field name="que_quan"/>
+                    <field name="dia_chi"/>
                     <field name="email"/>
                     <field name="so_dien_thoai"/>
+                    <field name="bang_cap"/>
+                    <field name="phong_ban_id"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="tham_nien"/>
+                    <field name="trang_thai" string = "Trạng thái hợp đồng"/>
                 </tree>
             </field>
         </record>
@@ -72,12 +128,22 @@
                     <field name="ho_ten"/>
                     <field name="ngay_sinh"/>
                     <field name="gioi_tinh"/>
+                    <field name="tinh_trang_hon_nhan"/>
                     <field name="tuoi"/>
                     <field name="que_quan"/>
+                    <field name="dia_chi"/>
                     <field name="email"/>
                     <field name="so_dien_thoai"/>
+                    <field name="bang_cap"/>
+                    <field name="phong_ban_id"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="tham_nien"/>
+                    <field name="trang_thai" string = "Trạng thái hợp đồng"/>
                     <searchpanel>
                         <field name = "chuc_vu_id" select ='multi'/>
+                        <field name = "phong_ban_id" select ='multi'/>
+                        <field name = "cap_bac_id" select ='multi'/>
                     </searchpanel>
                 </search>
             </field>

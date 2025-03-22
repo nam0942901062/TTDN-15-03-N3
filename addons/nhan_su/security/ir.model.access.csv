@@ -3,3 +3,6 @@ access_nhan_vien,nhan_vien.nhan_vien,model_nhan_vien,base.group_user,1,1,1,1
 access_phong_ban,phong_ban.phong_ban,model_phong_ban,base.group_user,1,1,1,1
 access_lich_lam_viec,lich_lam_viec.lich_lam_viec,model_lich_lam_viec,base.group_user,1,1,1,1
 access_chuc_vu,chuc_vu.chuc_vu,model_chuc_vu,base.group_user,1,1,1,1
+access_cap_bac,cap_bac.cap_bac,model_cap_bac,base.group_user,1,1,1,1
+access_quy_trinh_dao_tao,quy_trinh_dao_tao.quy_trinh_dao_tao,model_quy_trinh_dao_tao,base.group_user,1,1,1,1
+access_luu_file,access.luu.file,model_luu_file,,1,1,1,1

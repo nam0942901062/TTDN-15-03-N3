@@ -30,5 +30,17 @@
             sequence="4"
             action="action_chuc_vu"
         />
+        <menuitem name="Cấp bậc" 
+            id="menu_cap_bac" 
+            parent="menu_root" 
+            sequence="5"
+            action="action_cap_bac"
+        />
+        <menuitem name="Quy trình đào tạo" 
+            id="menu_quy_trinh_dao_tao" 
+            parent="menu_root" 
+            sequence="6"
+            action="action_quy_trinh_dao_tao"
+        />
     </data>
 </odoo>

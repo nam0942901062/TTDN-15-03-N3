@@ -11,11 +11,23 @@
                         <group col="4" string="Thông tin chung">
                             <field name="ma_chuc_vu"/>
                             <field name="nhan_vien_id" string = "Số lượng nhân viên"/>
+                            <field name="so_luong_nhan_vien"/>
                             <field name="ten_chuc_vu"/>
                             <field name="mo_ta"/>
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record id="view_chuc_vu_graph" model="ir.ui.view">
+            <field name="name">chuc_vu.graph</field>
+            <field name="model">chuc_vu</field>
+            <field name="arch" type="xml">
+                <graph string="Biểu đồ chức vụ" type="bar">
+                    <field name="ten_chuc_vu" type="row"/>
+                    <field name="so_luong_nhan_vien" type="measure"/>
+                </graph>
             </field>
         </record>
 
@@ -25,7 +37,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="ma_chuc_vu"/>
-                    <field name="nhan_vien_id" string = "Số lượng nhân viên"/>
+                    <field name="so_luong_nhan_vien"/>
                     <field name="ten_chuc_vu"/>
                     <field name="mo_ta"/>
                 </tree>
@@ -37,7 +49,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="ma_chuc_vu"/>
-                    <field name="nhan_vien_id" string = "Số lượng nhân viên"/>
+                    <field name="so_luong_nhan_vien"/>
                     <field name="ten_chuc_vu"/>
                     <field name="mo_ta"/>
                 </search>
@@ -47,7 +59,7 @@
         <record id="action_chuc_vu" model="ir.actions.act_window">
             <field name="name">Chức vụ</field>
             <field name="res_model">chuc_vu</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
             <field name="search_view_id" ref = "chuc_vu_search"/>
         </record>
     </data>
