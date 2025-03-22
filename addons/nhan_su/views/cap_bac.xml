@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cap_bac_form" model="ir.ui.view">
+            <field name="name">cap_bac</field>
+            <field name="model">cap_bac</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Cấp bậc</div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="ma_cap_bac"/>
+                            <field name="nhan_vien_id" string = "Số lượng nhân viên"/>
+                            <field name="so_luong_nhan_vien"/>
+                            <field name="ten_cap_bac"/>
+                            <field name="mo_ta"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_cap_bac_graph" model="ir.ui.view">
+            <field name="name">cap_bac.graph</field>
+            <field name="model">cap_bac</field>
+            <field name="arch" type="xml">
+                <graph string="Biểu đồ cấp bậc" type="bar">
+                    <field name="ten_cap_bac" type="row"/>
+                    <field name="so_luong_nhan_vien" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_cap_bac_tree" model="ir.ui.view">
+            <field name="name">cap_bac</field>
+            <field name="model">cap_bac</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ma_cap_bac"/>
+                    <field name="so_luong_nhan_vien"/>
+                    <field name="ten_cap_bac"/>
+                    <field name="mo_ta"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cap_bac_search">
+            <field name="model">cap_bac</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ma_cap_bac"/>
+                    <field name="so_luong_nhan_vien"/>
+                    <field name="ten_cap_bac"/>
+                    <field name="mo_ta"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cap_bac" model="ir.actions.act_window">
+            <field name="name">Cấp bậc</field>
+            <field name="res_model">cap_bac</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="search_view_id" ref = "cap_bac_search"/>
+        </record>
+    </data>
+</odoo>

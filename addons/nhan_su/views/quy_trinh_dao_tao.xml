@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quy_trinh_dao_tao_form" model="ir.ui.view">
+            <field name="name">quy_trinh_dao_tao</field>
+            <field name="model">quy_trinh_dao_tao</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Quy trình đào tạo</div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="ma_khoa_dao_tao"/>
+                            <field name="ten_khoa_dao_tao"/>
+                            <field name="noi_dung_dao_tao"/>
+                            <field name="ngay_bat_dau"/>
+                            <field name="ngay_ket_thuc"/>
+                            <field name="thoi_gian_dao_tao" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_quy_trinh_dao_tao_tree" model="ir.ui.view">
+            <field name="name">quy_trinh_dao_tao</field>
+            <field name="model">quy_trinh_dao_tao</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ma_khoa_dao_tao"/>
+                    <field name="ten_khoa_dao_tao"/>
+                    <field name="noi_dung_dao_tao"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="thoi_gian_dao_tao" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="quy_trinh_dao_tao_search">
+            <field name="model">quy_trinh_dao_tao</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ma_khoa_dao_tao"/>
+                    <field name="ten_khoa_dao_tao"/>
+                    <field name="noi_dung_dao_tao"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="thoi_gian_dao_tao" readonly="1"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_quy_trinh_dao_tao" model="ir.actions.act_window">
+            <field name="name">Quy trình đào tạo</field>
+            <field name="res_model">quy_trinh_dao_tao</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref = "quy_trinh_dao_tao_search"/>
+        </record>
+    </data>
+</odoo>

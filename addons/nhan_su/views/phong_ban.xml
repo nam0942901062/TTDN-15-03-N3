@@ -11,8 +11,19 @@
                         <group col="4" string="Thông tin chung">
                             <field name="ma_phong_ban"/>
                             <field name="ten_phong_ban"/>
-                            <field name="truong_phong"/>
+                            <field name="so_luong_nhan_vien"/>
+                            <field name="truong_phong_id" domain="[('chuc_vu_id.ten_chuc_vu', '=', 'Trưởng Phòng')]" />
+                            <field name="danh_sach_nhan_vien" widget="many2many_tags"/>
                         </group>
+                        <!-- <notebook>
+                            <page string="Danh Sách Nhân Viên">
+                                <field name="nhan_vien_id">
+                                    <tree editable="bottom">
+                                        <field name="ho_ten"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook> -->
                     </sheet>
                 </form>
             </field>
@@ -25,8 +36,22 @@
                 <tree>
                     <field name="ma_phong_ban"/>
                     <field name="ten_phong_ban"/>
-                    <field name="truong_phong"/>
+                    <field name="so_luong_nhan_vien"/>
+                    <field name="truong_phong_id"/>
+                    <!-- <field name="chuc_vu_truong_phong_id"/>
+                    <field name="truong_phong_id"/> -->
                 </tree>
+            </field>
+        </record>
+
+        <record id="view_phong_ban_graph" model="ir.ui.view">
+            <field name="name">phong_ban.graph</field>
+            <field name="model">phong_ban</field>
+            <field name="arch" type="xml">
+                <graph string="Biểu đồ số nhân viên trong phòng ban" type="bar">
+                    <field name="ten_phong_ban" type="row"/>
+                    <field name="so_luong_nhan_vien" type="measure"/>
+                </graph>
             </field>
         </record>
 
@@ -36,7 +61,8 @@
                 <search>
                     <field name="ma_phong_ban"/>
                     <field name="ten_phong_ban"/>
-                    <field name="truong_phong"/>
+                    <field name="so_luong_nhan_vien"/>
+                    <field name="truong_phong_id"/>
                 </search>
             </field>
         </record>
@@ -44,7 +70,7 @@
         <record id="action_phong_ban" model="ir.actions.act_window">
             <field name="name">Phòng Ban</field>
             <field name="res_model">phong_ban</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
             <field name="search_view_id" ref = "phong_ban_search"/>
         </record>
     </data>
